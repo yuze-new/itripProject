@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.itrip.dao.AdressDao">
+	<select id="query" parameterType="java.util.Map" resultMap="myMap">
+		select
+		id,
+		name,
+		areaNo,
+		parent,
+		isActivated,
+		isTradingArea,
+		isHot,
+		level,
+		isChina,
+		pinyin,
+		creationDate,
+		createdBy,
+		modifyDate,
+		modifiedBy
+		from
+		itrip_area_dic
+		<where>
+			<trim suffixOverrides="and">
+				<trim suffixOverrides="and">
+					<if test="isActivated != null">isActivated=#{isActivated} and</if>
+					<if test="isHot != null">isHot=#{isHot} and</if>
+					<if test="isChina != null">isChina=#{isChina} and</if>
+				</trim>
+			</trim>
+		</where>
+	</select>
+
+	<resultMap id="myMap" type="Area">
+		<id property="id" javaType="java.lang.Long" column="id"/>
+		<result property="name" javaType="java.lang.String" column="name"/>
+		<result property="areaNo" javaType="java.lang.String" column="areaNo"/>
+		<result property="parent" javaType="java.lang.String" column="parent"/>
+		<result property="isActivated" javaType="java.lang.Integer" column="isActivated"/>
+		<result property="isTradingArea" javaType="java.lang.Integer" column="isTradingArea"/>
+		<result property="isHot" javaType="java.lang.Integer" column="isHot"/>
+		<result property="level" javaType="java.lang.Integer" column="level"/>
+		<result property="pinyin" javaType="java.lang.String" column="pinyin"/>
+		<result property="creationDate" javaType="java.lang.String" column="creationDate"/>
+		<result property="modifyDate" javaType="java.lang.String" column="modifyDate"/>
+		<result property="modifiedBy" javaType="java.lang.String" column="modifiedBy"/>
+	</resultMap>
+</mapper>

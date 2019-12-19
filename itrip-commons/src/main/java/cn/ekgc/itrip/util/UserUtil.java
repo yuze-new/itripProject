@@ -10,14 +10,14 @@ public class UserUtil {
 	private static final String emailRegEx = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
 	private static final String Cellphone = "^1[0-9]{10}$";
 
-	public static boolean checkUserCodePattern(String userCode) {
+	public static String checkUserCodePattern(String userCode) {
 		if(userCode != null && !"".equals(userCode)) {
 			if(userCode.matches(emailRegEx)) {
-				return true;
+				return "1";
 			} else if(userCode.matches(Cellphone)) {
-				return true;
+				return "2";
 			}
 		}
-		return false;
+		return "0";
 	}
 }

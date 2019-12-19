@@ -366,7 +366,7 @@ CREATE TABLE `itrip_user` (
   `createdBy` bigint(11) DEFAULT NULL,
   `modifyDate` datetime DEFAULT NULL,
   `modifiedBy` bigint(11) DEFAULT NULL,
-  `activated` int(1) DEFAULT NULL COMMENT '是否激活,(0 false，1 true,默认是0)',
+  `activated` int(1) DEFAULT 0 COMMENT '是否激活,(0 false，1 true,默认是0)',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
